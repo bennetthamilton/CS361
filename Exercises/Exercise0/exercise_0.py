@@ -2,7 +2,7 @@
 # Name: Bennett Hamilton
 # Username: bennetthamilton
 # Last Editted: 9/27/23
-# Description: Print out the square root of integers between 1 and 1000 inclusive.
+# Description: Print out the square root of integers between 1 and 1000 inclusive
 
 # imports
 import math
