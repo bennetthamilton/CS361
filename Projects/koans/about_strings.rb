@@ -102,11 +102,14 @@ EOS
     #
     # Ruby programmers tend to favor the shovel operator (<<) over the
     # plus equals operator (+=) when building up strings.  Why?
+    #
+    # Because otherwise you would have to assign a new variable or reassign
+    # the original, so the shovel saves space an extra line of code
   end
 
   def test_double_quoted_string_interpret_escape_characters
     string = "\n"
-    assert_equal __, string.size
+    assert_equal 1, string.size
   end
 
   def test_single_quoted_string_do_not_interpret_escape_characters
