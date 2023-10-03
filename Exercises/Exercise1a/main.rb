@@ -39,6 +39,7 @@ score_range = 10..300
 # create an array of 50 players using for loop
 # ref: https://stackoverflow.com/questions/14532844/ruby-array-of-objects-classes
 # ref: https://www.geeksforgeeks.org/ruby-loops-for-while-do-while-until/
+# ref: https://blog.appsignal.com/2018/07/31/generating-random-numbers-in-ruby.html
 for i in player_range do
     Player.new("Player #{i}", rand(score_range))
 end
