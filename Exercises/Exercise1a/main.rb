@@ -27,8 +27,8 @@ class Player
 
     # prints players name and score
     # ref: https://www.rubyguides.com/2018/10/puts-vs-print/
-    def print_player_stats
-        puts "Ready "+ @player_name +" Score: #{@player_score}"
+    def print_stats
+        puts "Ready "+ @player_name +"! Score: #{@player_score}"
     end
 end
 
@@ -43,4 +43,7 @@ for i in player_range do
     Player.new("Player #{i}", rand(score_range))
 end
 
-# print all players in array, showing their names and scores using a for loop
+# print all players in array, showing their names and scores
+for player in Player.all_players do
+    puts player.print_stats
+end
