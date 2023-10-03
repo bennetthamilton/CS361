@@ -8,12 +8,21 @@
 
 # create a Player class
 # ref: https://www.tutorialspoint.com/ruby/ruby_classes.htm
+# ref: https://stackoverflow.com/questions/14532844/ruby-array-of-objects-classes
 class Player
+
+    @@players = Array.new # keep track of all players
+
+    # get all instances of players
+    def self.all_players
+        @@players
+    end
 
     # initialize name and score members
     def initialize(name, score)
         @player_name = name
         @player_score = score
+        @@players << self
     end
 
     # prints players name and score
@@ -23,7 +32,9 @@ class Player
     end
 end
 
-# create an array of 50 players
+# create an array of 50 players using for loop
+# ref: https://stackoverflow.com/questions/14532844/ruby-array-of-objects-classes
+# ref: https://www.geeksforgeeks.org/ruby-loops-for-while-do-while-until/
+for 
 
-
-# print all players in array, showing their names and scores
+# print all players in array, showing their names and scores using a for loop
