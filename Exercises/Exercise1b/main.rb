@@ -22,7 +22,7 @@ class Bike
         @height
     end
 
-    def change_weight(amount)
-        @weight -= amount
+    def change_weight
+        @weight -= AMOUNT
     end
 end
