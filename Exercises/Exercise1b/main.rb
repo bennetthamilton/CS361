@@ -8,10 +8,10 @@ class Bike
 
     AMOUNT = 10
 
-    def initialize(a, b, c)
-        @height = a
-        @weight = b
-        @color = c
+    def initialize(height, weight, colot)
+        @height = height
+        @weight = weight
+        @color = color
     end
 
     def getColor
