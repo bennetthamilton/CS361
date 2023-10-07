@@ -3,12 +3,8 @@
 # Username: bennetthamilton
 # Date: 10/7/23
 # Description: practice using naming principles from Martin's Clean Code 
-
-class Bike
-    # ...
-end
   
-class RedBike < Bike
+class Bike 
 
     AMOUNT = 10
 
