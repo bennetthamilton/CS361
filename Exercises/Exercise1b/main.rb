@@ -18,7 +18,7 @@ class Bike
         @color
     end
 
-    def retreive_height
+    def get_height
         @height
     end
 
