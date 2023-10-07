@@ -22,7 +22,7 @@ class Bike
         @height
     end
 
-    def change_weight
+    def reduce_weight_by_ten
         @weight -= AMOUNT
     end
 end
