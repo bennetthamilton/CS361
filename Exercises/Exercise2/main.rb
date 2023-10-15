@@ -6,8 +6,8 @@
 
 # Name Mangler
 
-# Mangle the name by reversing it or borgifying it
-def modified_name(name)
+# Mangle the name by reversing it and appending "Borg" 
+def reverse_and_borg(name)
 
     first_last_name = @name.split
 
@@ -33,4 +33,4 @@ end
 name = "Johanna Jackson"
 
 puts "New name: #{name}"
-puts "New borg name: #{modified_name(name)}"
+puts "New borg name: #{reverse_and_borg(name)}"
