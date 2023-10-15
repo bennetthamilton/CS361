@@ -10,11 +10,10 @@
 
 # Mangle the name by reversing it or borgifying it
 def modified_name(choose)
+
   # Split the name into first and last in an array
   split_name = @name.split
-  #reversed_twice = split_name.reverse.reverse
-  #mangled_name = reversed_twice << "Mangled"
-  #return mangled_name * 2
+
   # Reverse the array of name components so the array is [last, first]
   reversed_name_components = split_name.reverse
   # Rejoin the array of name components
