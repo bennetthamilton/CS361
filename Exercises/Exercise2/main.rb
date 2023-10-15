@@ -36,5 +36,5 @@ def modified_name(choose)
   return @name
 end
 
-puts "New name: #{modified_name(false)}"
-puts "New borg name: #{modified_name(true)}"
+puts "New name: #{name}"
+puts "New borg name: #{modified_name(name)}"
