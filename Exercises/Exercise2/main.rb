@@ -11,8 +11,6 @@ def reverse_and_borg(name)
     reversed_borg_name = (name.split.reverse << "Borg").join(" ")
 end
 
-
 name = "Johanna Jackson"
-
 puts "New name: #{name}"
 puts "New borg name: #{reverse_and_borg(name)}"
