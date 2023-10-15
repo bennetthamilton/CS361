@@ -15,9 +15,7 @@ def reverse_and_borg(name)
     
     reversed_name_components2 << "Borg"                 # add borg to the end of the array
 
-    new_name1 = reversed_name_components.join(' ')      # rejoin the array of name components
-
-  return name
+    new_name = reversed_name_components.join(' ')       # rejoin the array of name components
 end
 
 
