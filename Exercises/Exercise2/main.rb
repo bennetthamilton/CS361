@@ -9,16 +9,14 @@
 # Mangle the name by reversing it or borgifying it
 def modified_name(name)
 
-  first_last_name = @name.split
+    first_last_name = @name.split
 
-  # Reverse the array of name components so the array is [last, first]
-  reversed_name_components = split_name.reverse
+    # Reverse the array of name components so the array is [last, first]
+    reversed_name_components = split_name.reverse
 
-  # Rejoin the array of name components
-  new_name1 = reversed_name_components.join(' ')
-  # Store the mangled name
-  @name = new_name1
-  if choose
+    # Rejoin the array of name components
+    new_name1 = reversed_name_components.join(' ')
+
     # Split the name into last and first in an array
     split_name2 = new_name1.split
     # Reverse the array of name components so the array is [last, first]
@@ -27,9 +25,8 @@ def modified_name(name)
     reversed_name_components2 << "Borg"
     # Rejoin the array of name components
     new_name2 = reversed_name_components2.join(' ')
-    @name = new_name2
-  end
-  return @name
+
+  return name
 end
 
 
