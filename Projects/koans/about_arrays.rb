@@ -9,27 +9,36 @@ class AboutArrays < Neo::Koan
 
   def test_array_literals
     array = Array.new
-    assert_equal [], array
+    assert_equal __, array
 
     array[0] = 1
-    assert_equal [1], array
+    assert_equal __, array
 
     array[1] = 2
-    assert_equal [1, 2], array
+    assert_equal __, array
 
     array << 333
-    assert_equal [1, 2, 333], array
+    assert_equal __, array
   end
 
   def test_accessing_array_elements
     array = [:peanut, :butter, :and, :jelly]
 
+<<<<<<< HEAD
+    assert_equal __, array[0]
+    assert_equal __, array.first
+    assert_equal __, array[3]
+    assert_equal __, array.last
+    assert_equal __, array[-1]
+    assert_equal __ array[-3]
+=======
     assert_equal :peanut, array[0]
     assert_equal :peanut, array.first
     assert_equal :jelly, array[3]
     assert_equal :jelly, array.last
     assert_equal :jelly, array[-1]
     assert_equal :butter, array[-3]
+>>>>>>> ebed3a2f280864a2c2c8be0c7fc4f0775629cddd
   end
 
   def test_slicing_arrays
