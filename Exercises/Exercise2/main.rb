@@ -7,11 +7,8 @@
 # Name Mangler
 
 # Mangle the name by reversing it and appending "Borg" 
-def reverse_and_borg(name)
-    first_last_name = name.split                    # into array [first, last]
-    reversed_name = first_last_name.reverse         # [last, first]
-    reversed_borg_name << "Borg"                    # [last, first, "Borg"]
-    new_name = reversed_name_components.join(' ')   # return new name
+def reverse_and_borg(name)                                      
+    reversed_borg_name = (name.split.reverse << "Borg").join(" ")
 end
 
 
