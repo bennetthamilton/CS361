@@ -9,8 +9,8 @@
 # Mangle the name by reversing it and appending "Borg" 
 def reverse_and_borg(name)
     first_last_name = name.split                    # into array [first, last]
-    reversed_name = split_name.reverse              # then [last, first]
-    reversed_name_components2 << "Borg"             # last [last, first, "Borg"]
+    reversed_name = first_last_name.reverse         # [last, first]
+    reversed_borg_name << "Borg"                    # [last, first, "Borg"]
     new_name = reversed_name_components.join(' ')   # return new name
 end
 
