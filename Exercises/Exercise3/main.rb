@@ -10,7 +10,7 @@ class Student
 
   def remove_from_schedule(course, schedule, quarter_id)
     quarter = schedule.get_quarter(quarter_id)
-    # remove course from quarter
+    quarter.remove(course)
   end
 
   def add_to_schedule(course, schedule, quarter_id)
@@ -42,7 +42,9 @@ class Quarter
     @course_list = []
   end
 
-  # remove course
+  def remove(course)
+    course_list.delete(course)
+  end
 
   # can we add course
 
