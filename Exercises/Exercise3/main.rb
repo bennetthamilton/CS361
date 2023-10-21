@@ -9,16 +9,29 @@ class Student
   MAX_COURSES = 5
 
   def remove_from_schedule(course, schedule, quarter_id)
-    schedule.quarter[quarter_id].course_list.remove(course)
+    # remove course from schedule
   end
 
   def add_to_schedule(course, schedule, quarter_id)
-    max_courses = schedule[quarter_id].maximum_number_of_courses
-
-    if max_courses < MAX_COURSES
-        course_list.add(course)
-    end
-
+    # add course to schedule
   end
+
+end
+
+class Schedule
+
+  # should be a list containing quarter objects
+
+end
+
+class Quarter
+
+  # should be a list containing courses
+
+end
+
+class Course
+
+  # object for courses, needs a name
 
 end
