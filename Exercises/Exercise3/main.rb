@@ -25,8 +25,11 @@ class Schedule
 end
 
 class Quarter
-
-  # should be a list containing courses
+  attr_accessor :course_list
+  
+  def initialize
+    @course_list = []
+  end
 
 end
 
@@ -36,5 +39,5 @@ class Course
   def initialize(name)
     @name = name
   end
-  
+
 end
