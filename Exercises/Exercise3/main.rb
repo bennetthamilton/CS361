@@ -9,11 +9,14 @@ class Student
   MAX_COURSES = 5
 
   def remove_from_schedule(course, schedule, quarter_id)
-    # remove course from schedule
+    # get quarter based on id
+    # remove course from quarter
   end
 
   def add_to_schedule(course, schedule, quarter_id)
-    # add course to schedule
+    # get quarter based on id
+    # can we add course
+    # add course from quarter
   end
 
 end
@@ -26,6 +29,8 @@ class Schedule
     @quarters = []
   end
 
+  # get quarter
+
 end
 
 class Quarter
@@ -35,8 +40,15 @@ class Quarter
     @course_list = []
   end
 
+  # remove course
+
+  # can we add course
+
+  # add course
+
 end
 
+# ref: https://stackoverflow.com/questions/4370960/what-is-attr-accessor-in-ruby
 class Course
   attr_accessor :name
 
