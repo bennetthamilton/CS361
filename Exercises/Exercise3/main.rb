@@ -31,7 +31,10 @@ class Quarter
 end
 
 class Course
+  attr_accessor :name
 
-  # object for courses, needs a name
-
+  def initialize(name)
+    @name = name
+  end
+  
 end
