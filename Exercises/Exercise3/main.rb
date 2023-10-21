@@ -9,12 +9,12 @@ class Student
   MAX_COURSES = 5
 
   def remove_from_schedule(course, schedule, quarter_id)
-    # get quarter based on id
+    quarter = schedule.get_quarter(quarter_id)
     # remove course from quarter
   end
 
   def add_to_schedule(course, schedule, quarter_id)
-    # get quarter based on id
+    quarter = schedule.get_quarter(quarter_id)
     # can we add course
     # add course from quarter
   end
@@ -29,7 +29,9 @@ class Schedule
     @quarters = []
   end
 
-  # get quarter
+  def get_quarter(id)
+    quarter[id]
+  end
 
 end
 
