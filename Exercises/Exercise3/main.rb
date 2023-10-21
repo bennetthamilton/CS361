@@ -6,9 +6,6 @@
 
 class Student
 
-
-
-
   MAX_COURSES = 5
   def remove_from_schedule(course, schedule, quarter_id)
     schedule.quarter[quarter_id].course_list.remove(course)
@@ -22,28 +19,3 @@ class Student
     end
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
