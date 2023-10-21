@@ -20,13 +20,17 @@ end
 
 class Schedule
 
-  # should be a list containing quarter objects
+  attr_accessor :quarters
+  
+  def initialize
+    @quarters = []
+  end
 
 end
 
 class Quarter
   attr_accessor :course_list
-  
+
   def initialize
     @course_list = []
   end
