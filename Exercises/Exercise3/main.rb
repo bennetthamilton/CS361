@@ -15,8 +15,10 @@ class Student
 
   def add_to_schedule(course, schedule, quarter_id)
     quarter = schedule.get_quarter(quarter_id)
-    # can we add course
-    # add course from quarter
+    
+    if quarter.can_add_course?
+      # add course from quarter
+    end
   end
 
 end
@@ -46,7 +48,10 @@ class Quarter
     course_list.delete(course)
   end
 
-  # can we add course
+  # ref: https://medium.com/@sologoubalex/boolean-methods-in-ruby-94a2e907e5ea
+  def can_add_course?
+    course_list.count < Student::MAX_COURSES
+  end
 
   # add course
 
