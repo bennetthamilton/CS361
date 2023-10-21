@@ -15,9 +15,9 @@ class Student
 
   def add_to_schedule(course, schedule, quarter_id)
     quarter = schedule.get_quarter(quarter_id)
-    
+
     if quarter.can_add_course?
-      # add course from quarter
+      quarter.add(course)
     end
   end
 
@@ -53,7 +53,9 @@ class Quarter
     course_list.count < Student::MAX_COURSES
   end
 
-  # add course
+  def add(course)
+    course_list << course
+  end
 
 end
 
