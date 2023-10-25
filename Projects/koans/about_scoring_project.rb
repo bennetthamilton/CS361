@@ -30,13 +30,36 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Your goal is to write the score method.
 
 def score(dice)
+  # Initialize a hash to count the occurrences of each number
+  counts = Hash.new(0)
+
+  # Count the occurrences of each number in the dice
+  dice.each { |num| counts[num] += 1 }
+
+  # Initialize the total score
   total_score = 0
 
-  if dice[0] == 5
-    total_score += dice[0] * 10
-  elsif dice[0] == 1
-    total_score += dice[0] * 100
-  end 
+  # Calculate the score for each number
+  (1..6).each do |number|
+    count = counts[number]
+
+    if count >= 3
+      # Handle sets of three or more
+      if number == 1
+        total_score += 1000
+      else
+        total_score += number * 100
+      end
+      count -= 3
+    end
+
+    # Handle remaining ones and fives
+    if number == 1
+      total_score += count * 100
+    elsif number == 5
+      total_score += count * 50
+    end
+  end
 
   total_score
 end
