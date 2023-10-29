@@ -83,6 +83,8 @@ def audit_sanity(bedtime_mental_state)
   end
 end
 
+bedtime_mental_state = MentalState.new
+
 new_state = audit_sanity(bedtime_mental_state)
 new_state.do_work
 
