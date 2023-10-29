@@ -93,13 +93,25 @@ new_state.do_work
 
 # Exercise 4 Part 3 (Wrapping APIs)
 
-require 'candy_service'
+# create a wrapper class for the CandyMachine API
+# ref: Clean Code Chapter 8 (Using Third-Party Code)
+#      https://thixalongmy.haugiang.gov.vn/media/1175/clean_code.pdf
+class MyCandyMachine
+  def def initialize
+    @machine = CandyMachine.new
+  end
 
-machine = CandyMachine.new
-machine.prepare
+  # uses prepare, ready?, and make
 
-if machine.ready?
-  machine.make!
+end
+
+# instantiate and use the wrapped CandyMachine
+candy_machine = MyCandyMachine.new
+
+candy_machine.prepare
+
+if candy_machine.ready?
+  candy_machine.make!
 else
   puts "sadness"
 end
