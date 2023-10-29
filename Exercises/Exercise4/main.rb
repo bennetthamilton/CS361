@@ -101,7 +101,17 @@ class MyCandyMachine
     @machine = CandyMachine.new
   end
 
-  # uses prepare, ready?, and make
+  def prepare
+    @machine.prepare
+  end
+  
+  def ready?
+    @machine.ready?
+  end
+  
+  def make!
+    @machine.make!
+  end
 
 end
 
