@@ -48,15 +48,31 @@ new_state = audit_sanity(bedtime_mental_state)  # audit mental state
 
 
 
-
 # Exercise 4 Part 2 (Don't Return Null / Null Object Pattern)
+
+# define a NullMentalState class to represent a null-like object
+# ref: Clean Code Chapter 7 (Don't Return Null / Null Object Pattern)
+#      https://thixalongmy.haugiang.gov.vn/media/1175/clean_code.pdf
+class NullMentalState
+  def auditable?
+    false
+  end
+
+  def audit!
+    self
+  end
+
+  def do_work
+    # do nothing
+  end
+end
 
 class BedtimeMentalState < MentalState ; end
 
 class MorningMentalState < MentalState ; end
 
 def audit_sanity(bedtime_mental_state)
-  return nil unless bedtime_mental_state.auditable?
+  # return nil unless bedtime_mental_state.auditable?
   if bedtime_mental_state.audit!.ok?
     MorningMentalState.new(:ok)
   else 
