@@ -72,11 +72,14 @@ class BedtimeMentalState < MentalState ; end
 class MorningMentalState < MentalState ; end
 
 def audit_sanity(bedtime_mental_state)
-  # return nil unless bedtime_mental_state.auditable?
-  if bedtime_mental_state.audit!.ok?
-    MorningMentalState.new(:ok)
-  else 
-    MorningMentalState.new(:not_ok)
+  if bedtime_mental_state.auditable?
+    if bedtime_mental_state.audit!.ok?
+      MorningMentalState.new(:ok)
+    else 
+      MorningMentalState.new(:not_ok)
+    end
+  else  # create null object instead if not auditable
+    NullMentalState.new
   end
 end
 
