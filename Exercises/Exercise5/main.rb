@@ -12,6 +12,14 @@ class Discussion
     @title = title
   end
 
+  def save()
+    # logic for saving discussion
+  end
+
+  def create_roles()
+    # create discussion roles
+  end
+
   # other necessary functions...
 end
 
@@ -34,6 +42,10 @@ class User
     @@users[index]
   end
 
+  def save():
+    # save user to records
+  end
+
   # other necessary functions...
 end
 
@@ -50,23 +62,33 @@ class LaunchDiscussionWorkflow
   # Expects @participants array to be filled with User objects
   def run
     return unless valid?
-    run_callbacks(:create) do
-      ActiveRecord::Base.transaction do
-        discussion.save!
-        create_discussion_roles!
-        @successful = true
-      end
-    end
+
+    create_discussion
+    create_discussion_roles
+    @successful = true
   end
 
   def generate_participant_users_from_email_string
     return if @participants_email_string.blank?
+    
     @participants_email_string.split.uniq.map do |email_address|
-      User.create(email: email_address.downcase, password: Devise.friendly_token)
+      User.new(email: email_address.downcase, password: Devise.friendly_token)
     end
   end
 
-  # ...
+  def valid?
+    # check if the workflow is valid
+  end
+
+  private
+
+  def create_discussion
+    @discussion.save
+  end
+
+  def create_discussion_roles
+    @discussion.create_roles
+  end
 
 end
 
