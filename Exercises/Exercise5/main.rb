@@ -6,6 +6,38 @@
 
 # Exercise 5
 
+class Discussion 
+
+  def initialize(title, ...)
+    @title = title
+  end
+
+  # other necessary functions...
+end
+
+# ref: https://stackoverflow.com/questions/14532844/ruby-array-of-objects-classes
+class User 
+
+  @@users = Array.new
+  attr_accessor :email, :password
+  
+  def self.all_instances
+    @@users
+  end
+
+  def initialize(email, password)
+    @email = email
+    @password = password
+  end
+
+  def find(index)
+    @@users[index]
+  end
+
+  # other necessary functions...
+end
+
+
 class LaunchDiscussionWorkflow
 
   def initialize(discussion, host, participants_email_string)
