@@ -10,7 +10,8 @@ require 'test/unit'
 
 class TestDiscussion < Test::Unit::TestCase
   def test_creation_with_title
-    
+    discussion = Discussion.new(title: 'fake', ...)
+    assert_instance_of(Discussion, discussion)
   end
 
   def test_saving_discussion
@@ -26,7 +27,8 @@ end
 
 class TestUser < Test::Unit::TestCase
   def test_creation_with_email_and_password
-    
+    user = User.new('user@example.com', 'password')
+    assert_instance_of(User, user)
   end
 
   def test_saving_user
@@ -42,7 +44,12 @@ end
 
 class TestLaunchDiscussionWorkflow < Test::Unit::TestCase
   def test_creation_with_discussion_host_and_participants
-    
+    discussion = Discussion.new(title: "fake", ...)
+    host = User.find(42)
+    participants = "fake1@example.com\nfake2@example.com\nfake3@example.com"
+
+    workflow = LaunchDiscussionWorkflow.new(discussion, host, participants)
+    assert_instance_of(LaunchDiscussionWorkflow, workflow)
   end
 
   def test_running_workflow
