@@ -37,6 +37,8 @@ class TestUser < Test::Unit::TestCase
 
   def setup
     @user = User.new('user@example.com', 'password')
+    @user1 = User.new('user1@example.com', 'password1')
+    @user2 = User.new('user2@example.com', 'password2')
   end
 
   def teardown
@@ -52,7 +54,10 @@ class TestUser < Test::Unit::TestCase
   end
 
   def test_finding_user_by_index
-    
+    assert_includes(User.all_instances, @user1)
+    assert_includes(User.all_instances, @user2)
+    assert_equal(@user1, User.find(0))
+    assert_equal(@user2, User.find(1))
   end
 
   # add more tests as needed for other methods in the User class
