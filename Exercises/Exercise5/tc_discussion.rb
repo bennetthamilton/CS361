@@ -86,11 +86,22 @@ class TestLaunchDiscussionWorkflow < Test::Unit::TestCase
   end
 
   def test_no_errors_generating_participant_users_from_email_string
-    assert_nothing_raised { @workflow.run }
+    assert_nothing_raised { @workflow.generate_participant_users_from_email_string }
   end
 
-  def test_valid_workflow
+  def test_generating_user_from_email_has_correct_email_member
+    @workflow.generate_participant_users_from_email_string
+
+    generated_users = User.all_instances.last(participants_email_string.split("\n").size)
     
+    participants_emails = participants_email_string.split("\n").map(&:strip)
+    generated_users_emails = generated_users.map(&:email)
+    
+    assert_equal(participants_emails, generated_users_emails)
+  end  
+
+  def test_valid_workflow
+    assert_equal(true, @workflow.valid?)
   end
 
   # add more tests as needed for other methods in the LaunchDiscussionWorkflow class
