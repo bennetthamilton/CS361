@@ -100,6 +100,17 @@ class TestLaunchDiscussionWorkflow < Test::Unit::TestCase
     assert_equal(participants_emails, generated_users_emails)
   end  
 
+  def test_generating_user_from_email_has_correct_password_member
+    @workflow.generate_participant_users_from_email_string
+  
+    generated_users = User.all_instances.last(participants_email_string.split("\n").size)
+    
+    participants_password = Devise.friendly_token   # NOTE: not sure if this would work but the idea is there
+    generated_users_passwords = generated_users.map(&:password)
+    
+    assert_equal(participants_password, generated_users_passwords.uniq)
+  end
+
   def test_valid_workflow
     assert_equal(true, @workflow.valid?)
   end
