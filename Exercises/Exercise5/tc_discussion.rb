@@ -23,11 +23,11 @@ class TestDiscussion < Test::Unit::TestCase
   end
 
   def test_saving_discussion
-    
+    assert_nothing_raised { @discussion.save }
   end
 
   def test_creating_roles
-    
+    assert_nothing_raised { @discussion.create_roles }
   end
 
   # add more tests as needed for other methods in the Discussion class
@@ -48,7 +48,7 @@ class TestUser < Test::Unit::TestCase
   end
 
   def test_saving_user
-    
+    assert_nothing_raised { @user.save }
   end
 
   def test_finding_user_by_index
@@ -77,11 +77,11 @@ class TestLaunchDiscussionWorkflow < Test::Unit::TestCase
   end
 
   def test_running_workflow
-    
+    assert_nothing_raised { @workflow.run }
   end
 
-  def test_generating_participant_users_from_email_string
-    
+  def test_no_errors_generating_participant_users_from_email_string
+    assert_nothing_raised { @workflow.run }
   end
 
   def test_valid_workflow
