@@ -20,7 +20,7 @@ end
 
 class Poker
   def initialize(players)
-    @players = players
+    @players = players.map { |name| Player.new(name) }
     @hands = Array.new(players.length)
   end
 
@@ -36,10 +36,6 @@ class Poker
 
   def get_results()
     return "[pretend these are poker results]"
-  end
-
-  def get_player_name(i)
-    return @players[i]
   end
 
   def get_player_hand(i)
