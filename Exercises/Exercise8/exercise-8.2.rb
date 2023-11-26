@@ -35,11 +35,11 @@ class Poker
   end
 
   def get_results()
-    return "[pretend these are poker results]"
+    "[pretend these are poker results]"
   end
 
-  def get_player_hand(i)
-    return @hands[i]
+  def get_player_hand(player)
+    @hands[@players.index(player)]
   end
 end
 
@@ -55,7 +55,7 @@ class Chess
   end
 
   def get_results()
-    return "[pretend these are chess results]"
+    "[pretend these are chess results]"
   end
 
   def get_player_name(i)
@@ -76,7 +76,7 @@ class Go
   end
 
   def get_score()
-    return "[pretend these are go results]"
+   "[pretend these are go results]"
   end
 end
 
