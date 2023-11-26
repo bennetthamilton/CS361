@@ -66,18 +66,21 @@ end
 
 class Go
   def initialize(players)
-    @players = []
-    players.each { |x, y| @players.append(Player.new(x, y)) }
+    @players = players.map { |name, color| GoPlayer.new(name, color) }
   end
 
   def play()
     puts "Players in the go game:"
-    @players.each { |player| puts "#{player.name}: #{player.color}" }
+    self.display_players()
     # [pretend there's code here]
   end
 
   def get_score()
    "[pretend these are go results]"
+  end
+
+  def display_players()
+    @players.each { |player| puts "#{player.name}: #{player.color}" }
   end
 end
 
