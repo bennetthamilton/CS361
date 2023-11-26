@@ -26,7 +26,7 @@ class Poker
 
   def play_poker()
     puts "Players in the poker game:"
-    self.display_players()
+    self.display_players
     # [pretend there's code here]
   end
 
@@ -50,7 +50,7 @@ class Chess
 
   def play_game()
     puts "Players in the chess game:"
-    self.display_players()
+    self.display_players
     # [pretend there's code here]
   end
 
@@ -71,11 +71,11 @@ class Go
 
   def play()
     puts "Players in the go game:"
-    self.display_players()
+    self.display_players
     # [pretend there's code here]
   end
 
-  def get_score()
+  def get_results()
    "[pretend these are go results]"
   end
 
@@ -93,20 +93,18 @@ class PlayGames
 
   def play()
     case @game_number
-    when 1
-      poker = Poker.new(@player_list)
-      poker.play_poker()
-      puts poker.get_results()
-    when 2
-      chess = Chess.new(@player_list)
-      chess.play_game()
-      puts chess.get_results()
-    when 3
-      go = Go.new(@player_list)
-      go.play()
-      puts go.get_score()
+    when 1 then play_game(Poker)
+    when 2 then play_game(Chess)
+    when 3 then play_game(Go)
     end
   end
+
+  def play_game(game)
+    game = game_class.new(@player_list)
+    game.play
+    puts game.get_results
+  end
+
 end
 
 pg = PlayGames.new(1, ["alice", "bob", "chris", "dave"])
