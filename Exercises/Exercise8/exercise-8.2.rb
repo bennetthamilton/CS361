@@ -2,8 +2,7 @@
 class Poker
   def initialize(players)
     @players = players
-    @hands = []
-    players.length().times { |x| @hands.append(nil) }
+    @hands = Array.new(players.length)
   end
 
   def play_poker()
