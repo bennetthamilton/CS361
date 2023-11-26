@@ -26,7 +26,7 @@ class Poker
 
   def play_poker()
     puts "Players in the poker game:"
-    display_players
+    self.display_players()
     # [pretend there's code here]
   end
 
@@ -50,12 +50,16 @@ class Chess
 
   def play_game()
     puts "Players in the chess game:"
-    @players.length().times { |x| puts "#{self.get_player_name(x)}: #{@players[x][1]}" }
+    self.display_players()
     # [pretend there's code here]
   end
 
   def get_results()
     "[pretend these are chess results]"
+  end
+
+  def display_players()
+    @players.each { |player| puts "#{player.name}: #{player.color}" }
   end
 
 end
