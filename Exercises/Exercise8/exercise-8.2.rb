@@ -45,7 +45,7 @@ end
 
 class Chess
   def initialize(players)
-    @players = players
+    @players = players.map { |name, color| Player.new(name, color) }
   end
 
   def play_game()
@@ -58,9 +58,6 @@ class Chess
     "[pretend these are chess results]"
   end
 
-  def get_player_name(i)
-    @players[i][0]
-  end
 end
 
 class Go
