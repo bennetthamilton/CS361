@@ -1,3 +1,22 @@
+# Title: Exercise 8: Refactoring
+# Name: Bennett Hamilton
+# Username: bennetthamilton
+# Date: 11/25/23
+# Description: practice using principles learned from Clean Code and POODR 
+#              so far to refactor code
+
+class Player
+  attr_reader :name
+
+  def initialize(name, color = nil)
+    @name = name
+    @color = color
+  end
+
+  def color
+    @color || "[No color specified]"
+  end
+end
 
 class Poker
   def initialize(players)
@@ -48,19 +67,10 @@ class Chess
   end
 end
 
-class GoPlayer
-  attr_reader :name, :color
-
-  def initialize(name, color)
-    @name = name
-    @color = color
-  end
-end
-
 class Go
   def initialize(players)
     @players = []
-    players.each { |x, y| @players.append(GoPlayer.new(x, y)) }
+    players.each { |x, y| @players.append(Player.new(x, y)) }
   end
 
   def play()
