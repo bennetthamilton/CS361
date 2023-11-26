@@ -18,10 +18,22 @@ class Player
   end
 end
 
+class Score
+  def initialize()
+    @results = []
+  end
+
+  def get_results()
+    "[pretend these are poker results]"
+  end
+
+end
+
 class Poker
   def initialize(players)
     @players = players.map { |name| Player.new(name) }
     @hands = Array.new(players.length)
+    @score = Score.new
   end
 
   def play_poker()
@@ -34,10 +46,6 @@ class Poker
     @players.length().times { |i| puts "#{self.get_player_name(i)}: #{self.get_player_hand(i)}" }
   end
 
-  def get_results()
-    "[pretend these are poker results]"
-  end
-
   def get_player_hand(player)
     @hands[@players.index(player)]
   end
@@ -46,16 +54,13 @@ end
 class Chess
   def initialize(players)
     @players = players.map { |name, color| Player.new(name, color) }
+    @score = Score.new
   end
 
   def play_game()
     puts "Players in the chess game:"
     self.display_players
     # [pretend there's code here]
-  end
-
-  def get_results()
-    "[pretend these are chess results]"
   end
 
   def display_players()
@@ -67,16 +72,13 @@ end
 class Go
   def initialize(players)
     @players = players.map { |name, color| GoPlayer.new(name, color) }
+    @score = Score.new
   end
 
   def play()
     puts "Players in the go game:"
     self.display_players
     # [pretend there's code here]
-  end
-
-  def get_results()
-   "[pretend these are go results]"
   end
 
   def display_players()
@@ -102,7 +104,7 @@ class PlayGames
   def play_game(game)
     game = game_class.new(@player_list)
     game.play
-    puts game.get_results
+    puts game.score.get_results
   end
 
 end
