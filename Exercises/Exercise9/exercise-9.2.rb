@@ -7,22 +7,17 @@
 class Player
   attr_reader :name
 
-  def initialize(name, color = nil, hand = nil)
+  def initialize(name, color = nil)
     @name = name
     @color = color
-    @hand = hand
   end
 
   def color
     @color || "[No color specified]"
   end
 
-  def hand
-    @hands = Array.new(players.length) || '[No hand specified]'
-  end
-
   def display
-    "#{name}: #{color || '[No color specified]'} #{hand || '[No hand specified]'}"
+    "#{name}: #{color || '[No color specified]'}"
   end
 end
 
@@ -64,48 +59,20 @@ end
 class Poker < Game
   def initialize(players)
     super(players)
+    @hands = @hand = Array.new(players.length)
   end
 
-  def play()
-    super
-  end
-
-  def display_players()
-    @players.each { |player| puts player.display }
-  end
-
-  def get_player_hand(player)
-    player.hand
+  def get_player_hand(i)
+    @hands[i]
   end
 end
 
 class Chess < Game
-  def initialize(players)
-    super(players)
-  end
-
-  def play_game()
-    super
-  end
-
-  def display_players()
-    @players.each { |player| puts player.display }
-  end
-
+  # no additional class-specific methods
 end
 
 class Go < Game
-  def initialize(players)
-    super(players)
-  end
-
-  def play()
-    super
-  end
-
-  def display_players()
-    @players.each { |player| puts player.display }
-  end
+  # no additional class-specific methods
 end
 
 class PlayGames
@@ -116,17 +83,17 @@ class PlayGames
   end
 
   def play()
-    case @game_number
-    when 1 then play_game(Poker)
-    when 2 then play_game(Chess)
-    when 3 then play_game(Go)
-    end
+    game_class = case @game_number
+                 when 1 then Poker
+                 when 2 then Chess
+                 when 3 then Go
+                 end
+    play_game(game_class)
   end
 
   def play_game(game)
     game = game_class.new(@player_list)
     game.play
-    puts game.score.get_results
   end
 
 end
