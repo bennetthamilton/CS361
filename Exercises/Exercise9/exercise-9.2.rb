@@ -7,13 +7,22 @@
 class Player
   attr_reader :name
 
-  def initialize(name, color = nil)
+  def initialize(name, color = nil, hand = nil)
     @name = name
     @color = color
+    @hand = hand
   end
 
   def color
     @color || "[No color specified]"
+  end
+
+  def hand
+    @hands = Array.new(players.length) || '[No hand specified]'
+  end
+
+  def display
+    "#{name}: #{color || '[No color specified]'} #{hand || '[No hand specified]'}"
   end
 end
 
@@ -54,58 +63,48 @@ end
 
 class Poker < Game
   def initialize(players)
-    @players = players.map { |name| Player.new(name) }
-    @hands = Array.new(players.length)
-    @score = Score.new
+    super(players)
   end
 
-  def play_poker()
-    puts "Players in the poker game:"
-    self.display_players
-    # [pretend there's code here]
+  def play()
+    super
   end
 
   def display_players()
-    @players.length().times { |i| puts "#{self.get_player_name(i)}: #{self.get_player_hand(i)}" }
+    @players.each { |player| puts player.display }
   end
 
   def get_player_hand(player)
-    @hands[@players.index(player)]
+    player.hand
   end
 end
 
 class Chess < Game
   def initialize(players)
-    @players = players.map { |name, color| Player.new(name, color) }
-    @score = Score.new
+    super(players)
   end
 
   def play_game()
-    puts "Players in the chess game:"
-    self.display_players
-    # [pretend there's code here]
+    super
   end
 
   def display_players()
-    @players.each { |player| puts "#{player.name}: #{player.color}" }
+    @players.each { |player| puts player.display }
   end
 
 end
 
 class Go < Game
   def initialize(players)
-    @players = players.map { |name, color| GoPlayer.new(name, color) }
-    @score = Score.new
+    super(players)
   end
 
   def play()
-    puts "Players in the go game:"
-    self.display_players
-    # [pretend there's code here]
+    super
   end
 
   def display_players()
-    @players.each { |player| puts "#{player.name}: #{player.color}" }
+    @players.each { |player| puts player.display }
   end
 end
 
