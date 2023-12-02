@@ -7,11 +7,9 @@
 # common interface for bike classes
 # ref: https://www.geeksforgeeks.org/ruby-module/
 module Bike
-
   def prepare
     raise NotImplementedError, "#{self.class} must implement prepare method"
   end
-
 end
 
 class Employee
@@ -38,6 +36,13 @@ class Employee
 end
 
 class BmxBike
+  include Bike
+
+  def prepare
+    clean
+  end
+
+  private
 
   def clean
     puts 'Cleaning...'
@@ -46,6 +51,13 @@ class BmxBike
 end
 
 class RoadBike
+  include Bike
+
+  def prepare
+    lubricate_gears
+  end
+
+  private
 
   def lubricate_gears
     puts 'Lubricating gears...'
@@ -54,6 +66,13 @@ class RoadBike
 end
 
 class MountainBike
+  include Bike
+
+  def prepare
+    adjust_suspension
+  end
+
+  private
 
   def adjust_suspension
     puts 'Adjusting suspension...'
@@ -62,6 +81,13 @@ class MountainBike
 end
 
 class Tricycle
+  include Bike
+
+  def prepare
+    adjust_seat
+  end
+
+  private
 
   def adjust_seat
     puts 'Adjusting seat...'
